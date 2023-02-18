@@ -91,3 +91,105 @@ function ver ()
 - https://si.ua.es/es/documentacion/asp-net-mvc-3/1-dia/modelo-vista-controlador-mvc.html#:~:text=El%20controlador%20delega%20a%20los%20objetos,datos%20del%20modelo%20a%20la%20vista.&text=El%20controlador%20delega%20a,modelo%20a%20la%20vista.&text=delega%20a%20los%20objetos,datos%20del%20modelo%20a
 
 ESTEFANIA JAIDE ROSAS RAMIREZ 
+
+# Investigar acerca de la vista en MVC
+
+## Vistas en las cuales se reciben y envían los datos del modelo y los muestra al usuario.  
+
+Vista: es el interfaz de usuario, que muestra los datos del modelo, El frontend o interfaz gráfica de usuario.
+
+![Imagen Vista](https://www.freecodecamp.org/espanol/news/content/images/size/w1600/2021/06/MVC3.png)
+
+## Ejemplo
+
+Como ejemplo vamos a poner una tienda de carros donde el usuario ver la pagina en su pantalla.
+
+La aplicación "Car Clicker" tiene dos vistas: carListView y CarView.
+
+1-CarListView
+~~~
+const carListView = {
+    init() {
+        // almacene el elemento DOM para un fácil acceso más tarde
+        this.carListElem = document.getElementById('car-list');
+
+        // renderizar esta vista (actualizar los elementos DOM con los valores correctos)
+        this.render();
+    },
+
+    render() {
+        let car;
+        let elem;
+        let i;
+        // obtener los carros para ser renderizados desde el controlador
+        const cars = controller.getCars();
+
+        // para asegurarse de que la lista está vacía antes de renderiz
+        this.carListElem.innerHTML = '';
+
+        // bucle sobre el arreglo de carros
+        for(let i = 0; i < cars.length; i++) {
+            // este es el carro que tenemos en bucle
+            car = cars[i];
+
+            // hacer un nuevo elemento de la lista de carros y establecer su texto
+            elem = document.createElement('li');
+            elem.className = 'list-group-item d-flex justify-content-between lh-condensed';
+            elem.style.cursor = 'pointer';
+            elem.textContent = car.name;
+            elem.addEventListener(
+                'click',
+                (function(carCopy) {
+                    return function() {
+                        controller.setCurrentCar(carCopy);
+                        carView.render();
+                    };
+                })(car)
+            );
+            // finalmente, agregua el elemento a la lista
+            this.carListElem.appendChild(elem);
+        }
+    },
+};
+~~~
+2-CarView
+~~~
+const carView = {
+    init() {
+        // almacene punteros a los elementos DOM para un fácil acceso más tarde
+        this.carElem = document.getElementById('car');
+        this.carNameElem = document.getElementById('car-name');
+        this.carImageElem = document.getElementById('car-img');
+        this.countElem = document.getElementById('car-count');
+        this.elCount = document.getElementById('elCount');
+
+
+        // al hacer clic, aumentar el contador del carro actual
+        this.carImageElem.addEventListener('click', this.handleClick);
+
+        // renderizar esta vista (actualizar los elementos DOM con los valores correctos)
+        this.render();
+    },
+
+    handleClick() {
+    	return controller.incrementCounter();
+    },
+
+    render() {
+        // actualizar los elementos DOM con valores del carro actual
+        const currentCar = controller.getCurrentCar();
+        this.countElem.textContent = currentCar.clickCount;
+        this.carNameElem.textContent = currentCar.name;
+        this.carImageElem.src = currentCar.imgSrc;
+        this.carImageElem.style.cursor = 'pointer';
+    },
+};
+~~~
+
+![imagen vista](https://www.freecodecamp.org/news/content/images/2021/04/Screen-Recording-2021-04-11-at-11.31.27.07-PM.gif)
+
+## BIBLIOGRAFIA
+
+- http://www.jtech.ua.es/j2ee/2004-2005/modulos/jsp/sesion06-apuntes.htm#:~:text=Vista%3A%20es%20el%20interfaz%20de%20usuario%2C%20que%20muestra,en%20el%20modelo%20y%20muestra%20la%20vista%20correspondiente.
+
+- https://www.freecodecamp.org/espanol/news/el-modelo-de-arquitectura-view-controller-pattern/ 
