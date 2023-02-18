@@ -97,6 +97,9 @@ ESTEFANIA JAIDE ROSAS RAMIREZ
 ## Vistas en las cuales se reciben y envían los datos del modelo y los muestra al usuario.  
 
 Vista: es el interfaz de usuario, que muestra los datos del modelo, El frontend o interfaz gráfica de usuario.
+### ¿Por qué deberías usar MVC?
+
+El patrón MVC te ayuda a dividir el código frontend y backend en componentes separados. De esta manera, es mucho más fácil administrar y hacer cambios a cualquiera de los lados sin que interfieran entre sí. Es mas facil usarlo cuando varios desarrolladores necesitan actualizar, modificar o depurar una aplicación completada simultáneamente.
 
 ![Imagen Vista](https://www.freecodecamp.org/espanol/news/content/images/size/w1600/2021/06/MVC3.png)
 
