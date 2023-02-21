@@ -210,8 +210,47 @@ La **"lógica de aplicación / negocio"**, que es algo que pertenece a los contr
 
 ![Imagen controlador](https://possibleapp.com/blog/wp-content/uploads/2016/01/MVC-720x380.png)
 
+## Ejemplo
+
+Con el ejemplo anterior de los carros vamos a ver el controlador de este mismo. Pues el controlador es el cerebro. 
+~~~
+const controller = {
+    init() {
+        // establecer el carro actual como el primero en la lista
+        model.currentCar = model.cars[0];
+
+        // indicar a las vistas que inicialicen
+        carListView.init();
+        carView.init();
+    },
+
+    getCurrentCar() {
+    	return model.currentCar;
+    },
+
+    getCars() {
+    	return model.cars;
+    },
+
+    // establecer el carro seleccionado actualmente en el objeto que se pasa en
+    setCurrentCar(car) {
+    	model.currentCar = car;
+    },
+
+    // incrementar el contador para el coche seleccionado actualmente
+    incrementCounter() {
+        model.currentCar.clickCount++;
+        carView.render();
+    },
+};
+
+controller.init();
+~~~
+
 ## BIBLIOGRAFIA
 
 - https://desarrolloweb.com/articulos/que-es-mvc.html
+
+- https://www.freecodecamp.org/espanol/news/el-modelo-de-arquitectura-view-controller-pattern/
 
 - ESTEFANIA JAIDE ROSAS RAMIREZ
