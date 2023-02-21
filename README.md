@@ -196,3 +196,22 @@ const carView = {
 - http://www.jtech.ua.es/j2ee/2004-2005/modulos/jsp/sesion06-apuntes.htm#:~:text=Vista%3A%20es%20el%20interfaz%20de%20usuario%2C%20que%20muestra,en%20el%20modelo%20y%20muestra%20la%20vista%20correspondiente.
 
 - https://www.freecodecamp.org/espanol/news/el-modelo-de-arquitectura-view-controller-pattern/ 
+
+# Investigar acerca del controlador en MVC
+
+## Identificar los eventos necesarios que cumplan con la lógica del negocio.
+
+Contiene el **código necesario para responder a las acciones que se solicitan** en la aplicación, como visualizar un elemento, realizar una compra, una búsqueda de **información**, etc.
+Se resume en que él controlador tiene la información.
+
+![Imagen controlador](https://desarrolloweb.com/archivoimg/general/2758.jpg)
+
+La **"lógica de aplicación / negocio"**, que es algo que pertenece a los controladores. Por ejemplo, cuando me piden ver el resumen de **datos de un usuario**. Esa acción le llega al controlador, que tendrá que acceder al **modelo del usuario para pedir sus datos**. Luego llamará a la **vista apropiada para poder mostrar esos datos del usuario**. Si en el resumen del usuario queremos mostrar los artículos que ha publicado dentro de la aplicación, quizás el controlador **tendrá que llamar al modelo de artículos**, pedirle todos los publicados por ese usuario y con ese listado de artículos **invocar a la vista correspondiente para mostrarlos**. 
+
+![Imagen controlador](https://possibleapp.com/blog/wp-content/uploads/2016/01/MVC-720x380.png)
+
+## BIBLIOGRAFIA
+
+- https://desarrolloweb.com/articulos/que-es-mvc.html
+
+- ESTEFANIA JAIDE ROSAS RAMIREZ
