@@ -16,6 +16,7 @@ Se usa para poder dar de alta una categoria y poder eliminarla, modificar y busc
 - mvc (base de datos exportada)
 #### Instalación en un host local
 Una vez teniendolo descomprimido abrimos "xampp" y activamos apache y MySQL despues seleccionar "admin" de MySQL, nos abrirá una pestaña en el navegador en el cual vamos a crear una base de datos en este caso "mvc" y dentro de la misma vamos a importar nuestra base de datos que tenemos. 
+
 ![xampp](https://cdn.write.corbpie.com/wp-content/uploads/2019/02/xampp-logo-700x727.png)
 
 Al mismo tiempo vamos a **mover la carpeta** que descomprimimos para el **disco local** dentro de esta esta la carpeta **"xampp"** la seleccionamos enseguida seleccionar la carpeta **"htdocs"** y ahi vamos a pegar la carpeta descomprimida.
