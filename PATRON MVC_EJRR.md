@@ -31,4 +31,6 @@ Una vez importada la base de datos y con nuestra carpta en xampp vamos a **abrir
 
 ![carpeta](https://elasvi.com/wp-content/uploads/2020/09/22.jpg) 
 
+Y listo ahora podras abrir el proyecto "categorias_EJRR" de forma local :)
+
 ESTEFANIA JAIDE ROSAS RAMIREZ
